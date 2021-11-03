@@ -1,5 +1,5 @@
 "use strict";
-
+const queryString = require("querystring");
 module.exports.hello = async (event, context, cb) => {
   console.log("eventoooo", event);
   return {
@@ -13,7 +13,20 @@ module.exports.hello = async (event, context, cb) => {
       2
     ),
   };
+};
+module.exports.createUser = async (event, context, cb) => {
+  const { firstname, lastname } = queryString.parse(event["body"]);
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: `Peticion POST`,
+        // input: event["body"],
+        input: `hola, ${firstname}, ${lastname}`,
+      },
+      null,
+      2
+    ),
+  };
 };
