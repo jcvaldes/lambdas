@@ -1,0 +1,21 @@
+{
+  "name": "03-password-strength",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.2.0",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "serverless-offline": "^8.2.0",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^5.0.0"
+  }
+}

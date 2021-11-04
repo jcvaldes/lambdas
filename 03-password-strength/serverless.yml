@@ -11,9 +11,24 @@
 #
 # Happy Coding!
 
-service: curso-sls-hola-mundo
+service: curso-sls-password-strength
+
+package:
+  individually: true
+  patterns:
+    - '!node_modules/**' # no need to add this, this plugin does it for you
+    - '!README'
+    - '!**/*.txt'
+custom:
+  includeDependencies:
+    enableCaching: true
+
 plugins:
   - serverless-offline
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies
+
+
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -27,9 +42,9 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
 
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  # you can overwrite defaults here
+  stage: dev
+  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -60,15 +75,15 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  password:
+    handler: handler.password
     #    The following are a few example events you can configure
     #    NOTE: Please make sure to change your handler code to work with those events
     #    Check the event documentation for details
-    # events:
-    #   - httpApi:
-    #       path: /hello
-    #       method: get
+    events:
+      - httpApi:
+          path: /password/{password}
+          method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
