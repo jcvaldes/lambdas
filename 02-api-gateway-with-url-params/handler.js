@@ -1,5 +1,5 @@
 "use strict";
-const queryString = require("querystring");
+const qs = require("querystring");
 module.exports.hello = async (event, context, cb) => {
   console.log("eventoooo", event);
   return {
@@ -15,15 +15,14 @@ module.exports.hello = async (event, context, cb) => {
   };
 };
 module.exports.createUser = async (event, context, cb) => {
-  const { firstname, lastname } = queryString.parse(event["body"]);
-
+  const body = qs.parse(event.body);
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
         message: `Peticion POST`,
         // input: event["body"],
-        input: `hola, ${firstname}, ${lastname}`,
+        input: `hola, ${body.firstname} ${body.lastname}`,
       },
       null,
       2

@@ -1,5 +1,5 @@
 {
-  "name": "01-hola-mundo",
+  "name": "03-password-strength",
   "version": "1.0.0",
   "description": "",
   "main": "handler.js",
@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "querystring": "^0.2.1"
+    "glob": "^7.2.0",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "serverless-offline": "^8.2.0"
+    "serverless-offline": "^8.2.0",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^5.0.0"
   }
 }

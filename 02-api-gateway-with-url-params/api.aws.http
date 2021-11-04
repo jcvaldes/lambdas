@@ -1,0 +1,9 @@
+###
+GET https://pklg3kppqe.execute-api.us-east-1.amazonaws.com/hello/world
+
+###
+POST  https://pklg3kppqe.execute-api.us-east-1.amazonaws.com/users
+Content-Type: application/x-www-form-urlencoded
+
+firstname=Diego
+&lastname=Maradona
