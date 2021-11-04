@@ -1,0 +1,19 @@
+{
+  "name": "04-express-dynamodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1021.0",
+    "express": "^4.17.1",
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-http": "^2.7.0",
+    "serverless-offline": "^8.2.0"
+  }
+}
