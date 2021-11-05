@@ -18,8 +18,12 @@ service: curso-sls-express
 custom:
   tableName: 'users-table-${self:provider.stage}'
   dynamodb:
+    stages:
+      - dev
     start:
+      port: 8000
       migrate: true
+    
 
 plugins:
   - serverless-offline

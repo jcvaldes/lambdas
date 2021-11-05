@@ -5,13 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
-      "name": "Debug Lambda",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}/handler.js"
+      "name": "Launch Serverless Offline",
+      "program": "${workspaceFolder}/node_modules/serverless/bin/serverless",
+      "args": ["offline", "start", "--httpPort", "3000", "--noTimeout"],
+      "protocol": "inspector",
+      "runtimeExecutable": "/home/jcvaldes/.nvm/versions/node/v14.17.4/bin/node",
+      "env": {},
+      "windows": {
+        "program": "${workspaceFolder}\\node_modules\\serverless\\bin\\serverless"
+      }
     }
   ]
 }

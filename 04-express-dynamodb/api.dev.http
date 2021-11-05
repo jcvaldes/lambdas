@@ -1,0 +1,15 @@
+###
+GET http://localhost:3000/dev
+
+###
+GET http://localhost:3000/dev/users
+
+###
+GET http://localhost:3000/dev/users/1
+
+###
+POST http://localhost:3000/dev/users
+Content-Type: application/x-www-form-urlencoded
+
+userId=1
+&name=Oliver
