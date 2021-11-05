@@ -3,8 +3,21 @@ const serverless = require("serverless-http");
 const express = require("express");
 const AWS = require("aws-sdk");
 const app = express();
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
-const USER_TABLE = process.env.USER_TABLE;
+const USERS_TABLE = process.env.USERS_TABLE;
+// detecta si estoy en offline
+const IS_OFFLINE = process.env.IS_OFFLINE;
+
+let dynamoDB;
+
+if (IS_OFFLINE === "true") {
+  dynamoDB = new AWS.DynamoDB.DocumentClient({
+    region: "localhost",
+    endpoint: "http://localhost:8000",
+  });
+} else {
+  dynamoDB = new AWS.DynamoDB.DocumentClient();
+}
+console.log("info", USERS_TABLE);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +30,7 @@ app.post("/users", (req, res) => {
   const { userId, name } = req.body;
 
   const params = {
-    TableName: USER_TABLE,
+    TableName: USERS_TABLE,
     Item: {
       userId,
       name,
@@ -39,7 +52,7 @@ app.post("/users", (req, res) => {
 // GET ALL USERS
 app.get("/users", (req, res) => {
   const params = {
-    TableName: USER_TABLE,
+    TableName: USERS_TABLE,
   };
   dynamoDB.scan(params, (err, result) => {
     if (err) {

@@ -1,9 +1,15 @@
 ###
-GET https://nvkht8dhg5.execute-api.us-east-1.amazonaws.com/dev
+GET https://jc3mtrjl92.execute-api.us-east-1.amazonaws.com/dev
 
 ###
-POST https://nvkht8dhg5.execute-api.us-east-1.amazonaws.com/dev/users
+GET https://jc3mtrjl92.execute-api.us-east-1.amazonaws.com/dev/users
+
+###
+GET https://jc3mtrjl92.execute-api.us-east-1.amazonaws.com/dev/users/1
+
+###
+POST https://jc3mtrjl92.execute-api.us-east-1.amazonaws.com/dev/users
 Content-Type: application/x-www-form-urlencoded
 
-userId=22
-&name=John
+userId=1
+&name=Oliver
